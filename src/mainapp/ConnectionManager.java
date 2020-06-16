@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class ConnectionManager {
 	public Connection getConnection() throws SQLException, ClassNotFoundException {
 		// register the drive class
-		Class.forName("oracle.jdbc.OracleDrive");
+		Class.forName("oracle.jdbc.OracleDriver");
 		
 		// create the connection object
 		Connection con = null;

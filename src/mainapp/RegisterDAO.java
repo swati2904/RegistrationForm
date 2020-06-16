@@ -8,13 +8,14 @@ public class RegisterDAO {
 		String firstname = registerpojo.getFirstname();
 		String lastname = registerpojo.getLastname();
 		String username = registerpojo.getUsername();
-		String email = registerpojo.getEmail();
 		String password = registerpojo.getPassword();
+		String email = registerpojo.getEmail();
+		
 		
 		ConnectionManager cm =  new ConnectionManager();
 		
 		// insert all the details into the database.
-		String sql  = "insert into details(FIRSTNAME, LASTNAME, USERNAME, EMAIL, PASSWORD)VALUES (?,?,?,?,?)";
+		String sql  = "insert into REGISTRATION(FIRSTNAME, LASTNAME, USERNAME, PASSWORD, EMAIL)VALUES (?,?,?,?,?)";
 		// create statment object jdbc
 		
 		PreparedStatement st = cm.getConnection().prepareStatement(sql);
@@ -24,8 +25,11 @@ public class RegisterDAO {
 		st.setString(3,username);
 		st.setString(4,password);
 		st.setString(5,email);
-
 		
+		
+
+		st.executeUpdate();
+		cm.getConnection().close();
 		
 	}
 }
